@@ -25,9 +25,9 @@ public class CCuenta {
  */
 CCuenta(String nom, String cue, double sal, double tipo)
     {
-        nombre =nom;
-        cuenta=cue;
-        saldo=sal;
+        setNombre(nom);
+        setCuenta(cue);
+        setSaldo(sal);
     }
 
     /**
@@ -53,7 +53,7 @@ CCuenta(String nom, String cue, double sal, double tipo)
      */
     public double estado()
     {
-        return saldo;
+        return getSaldo();
     }
 
 
@@ -66,7 +66,7 @@ CCuenta(String nom, String cue, double sal, double tipo)
     {
         if (cantidad<0)
             throw new Exception("No se puede ingresar una cantidad negativa");
-        saldo = saldo + cantidad;
+        setSaldo(getSaldo() + cantidad);
     }
 
     /**
@@ -80,7 +80,7 @@ CCuenta(String nom, String cue, double sal, double tipo)
             throw new Exception ("No se puede retirar una cantidad negativa");
         if (estado()< cantidad)
             throw new Exception ("No se hay suficiente saldo");
-        saldo = saldo - cantidad;
+        setSaldo(getSaldo() - cantidad);
     }
 
 
@@ -90,7 +90,7 @@ CCuenta(String nom, String cue, double sal, double tipo)
      */
     public String obtenerCuenta()
     {
-        return cuenta;
+        return getCuenta();
     }
 
 
@@ -128,4 +128,20 @@ CCuenta(String nom, String cue, double sal, double tipo)
     public void setTipoInteres(double tipoInteres) {
         this.tipoInteres = tipoInteres;
     }
+
+	private String getCuenta() {
+		return cuenta;
+	}
+
+	private void setCuenta(String cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	private double getSaldo() {
+		return saldo;
+	}
+
+	private void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
 }
